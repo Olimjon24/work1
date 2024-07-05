@@ -10,19 +10,19 @@ let bars = document.querySelector('.d-none'),
     add = document.querySelector('.add'),
     productNumb = document.querySelector('.count__product-d_none'),
     heart = document.querySelector('.heart');
+/* ---nav bars start-------- */
+  function showAndHide(btn, hide, show) {
+      btn.addEventListener('click', function () {
+          hide.style.display = 'none';
+          show.style.display = 'flex'
+      })
+  }
+    showAndHide(bars, nav, menu)
+    showAndHide(close, menu, nav)
+    showAndHide(exit,menu,nav)
+/* -----nav bars end */
 
-bars.addEventListener('click', function () {
-    nav.style.display = 'none';
-    menu.style.display = 'flex';
-})
-close.addEventListener('click', function () {
-    nav.style.display = 'flex';
-    menu.style.display = 'none';
-})
-exit.addEventListener('click', function () {
-    nav.style.display = 'flex';
-    menu.style.display = 'none';
-});
+/* ---------timer start------ */
 buttonCountPlus.onclick = function () {
     if (number <= 30) {
         number++;
@@ -41,14 +41,17 @@ add.addEventListener('click', function () {
         productNumb.innerHTML = 'Вы не выбрали'
     } else {
         productNumb.innerHTML = `Товар в количестве '${number}' единиц добавлен в корзину`
+        count.innerHTML = 0;
+        number = 0
     }
 })
 heart.addEventListener('click', function () {
     productNumb.style.display = 'none';
     count.innerHTML = 0;
 })
-/* Scroll */
-// const header = document.querySelector('.header');
+/* ------timer end */
+
+/*------ Scroll start */
 const body = document.querySelector('body');
 const navHeight = nav.offsetHeight;
 const bodyHeight = body.offsetHeight;
@@ -68,24 +71,23 @@ window.addEventListener('scroll', () => {
     }
     lastScrollTop = scrollDistance;
 })
+/* -------Scroll end----- */
 /* photo */
 let mainPhoto = document.querySelector('.header__content-left_img'),
     miniPhoto = document.querySelectorAll('.header__content-card_img');
-   for (let i = 0; i < miniPhoto.length; i++) {
-    miniPhoto[0].addEventListener('click', function(){
-        mainPhoto.src = 'img/header/header-bg-1.png'
+    img(miniPhoto[0], mainPhoto, 'img/header/header-bg-1.png');
+    img(miniPhoto[1], mainPhoto, 'img/header/img1.jpg');
+    img(miniPhoto[2], mainPhoto, 'img/header/img2.jpg');
+    img(miniPhoto[3], mainPhoto, 'img/header/img3.jpg');
+    img(miniPhoto[4], mainPhoto, 'img/header/img4.png');
+
+    function img(btn, miniImg, bigImg){
+    btn.addEventListener('click', function(){
+        miniImg.src = bigImg
     })
-    miniPhoto[1].addEventListener('click', function(){
-        mainPhoto.src = 'img/header/img1.jpg'
+    }
+    let inpClose = document.getElementById('text'),
+        butt = document.querySelector('.footer__button');
+    butt.addEventListener('click', function(){
+        inpClose.value = ""
     })
-    miniPhoto[2].addEventListener('click', function(){
-        mainPhoto.src = 'img/header/img2.jpg'
-    })
-    miniPhoto[3].addEventListener('click', function(){
-        mainPhoto.src = 'img/header/img3.jpg'
-    })
-    miniPhoto[4].addEventListener('click', function(){
-        mainPhoto.src = 'img/header/img4.png'
-    })
-       
-   }

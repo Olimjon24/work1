@@ -375,18 +375,6 @@ select{
     position: absolute;
     z-index: 2;
 }
-/* .icons{
-    position: absolute;
-    top: -289%;
-    right: -114%;
-    font-size: 16px;
-}
-.center{
-    position: absolute;
-
-} */
-
-
 /* ------main end -------- */
 
 /* ------footer start----- */
@@ -415,8 +403,7 @@ select{
     margin-bottom: 16px;
 }
 .footer__link{
-    color: #333333
-;
+    color: #333333;
 }
 .footer__item:not(:last-child) {
     margin-bottom: 8px;
